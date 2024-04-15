@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        MAVEN_HOME = '/usr/share/maven' // Adjust this path according to your Maven installation directory
+        MAVEN_HOME = "/usr/share/maven" 
         PATH = "$PATH:$MAVEN_HOME/bin"
     }
     
