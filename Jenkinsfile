@@ -12,6 +12,7 @@ pipeline {
         ANDROID_APPPACKAGE = "${ANDROID_APPPACKAGE}"
         ANDROID_APPACTIVITY = "${ANDROID_APPACTIVITY}"
         IOS_BUNDLEID = "${IOS_BUNDLEID}"
+        CLOUD="${CLOUD}"
     }
     
     stages {
@@ -31,9 +32,11 @@ pipeline {
                     -DiosApplication=${IOS_APPLICATION} \
                     -DandroidAppPackage=${ANDROID_APPPACKAGE} \
                     -DandroidAppActivity=${ANDROID_APPACTIVITY} \
-                    -DiosBundleId=${IOS_BUNDLEID}
+                    -DiosBundleId=${IOS_BUNDLEID} \
+                    -Dcloud=${CLOUD}
                 """
             }
         }
     }
 }
+

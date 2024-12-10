@@ -22,6 +22,8 @@ import io.appium.java_client.android.AndroidDriver;
 
 import com.pCloudy.Controller.Allurelogging;
 import com.pCloudy.TestCase.*;
+import com.pCloudy.Utils.EnvironmentUtility;
+
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 
 public class Runner {
@@ -38,7 +40,8 @@ public class Runner {
 	@BeforeMethod
 	public void prepareTest(String deviceManufaturer) throws IOException, InterruptedException {
 		System.out.println(deviceManufaturer);
-		String baseUrl = "https://ind-west.pcloudy.com";
+		String cloud = EnvironmentUtility.getCloud();
+		String baseUrl = "https://"+cloud;
 		
 		if(deviceManufaturer.toLowerCase().contains("apple")) {
 			driver =Driver.createIOSDriver(deviceManufaturer, baseUrl);
@@ -71,6 +74,9 @@ public class Runner {
 		driver.quit();
 	}
 
+	  public static void loadEnvFromUtility() {
+	        EnvironmentUtility.initializeEnv();
+	    }
 
 	
 }

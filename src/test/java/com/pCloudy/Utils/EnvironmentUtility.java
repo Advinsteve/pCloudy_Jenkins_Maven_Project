@@ -9,6 +9,7 @@ public class EnvironmentUtility {
 	private static String androidAppPackage;
 	private static String androidAppActivity;
 	private static String iosBundleId;
+	private static String cloud;
 
 	public static void initializeEnv() {
 		username = System.getProperty("username", "");
@@ -19,6 +20,7 @@ public class EnvironmentUtility {
 		androidAppPackage = System.getProperty("androidAppPackage", "");
 		androidAppActivity = System.getProperty("androidAppActivity", "");
 		iosBundleId = System.getProperty("iosBundleId", "");
+		cloud = System.getProperty("cloud", "");
 	}
 
 	public static String getUsername() {
@@ -52,5 +54,10 @@ public class EnvironmentUtility {
 	public static String getIosBundleId() {
 		return iosBundleId;
 	}
+	
+	public static String getCloud() {
+		return cloud;
+	}
 }
+
 
