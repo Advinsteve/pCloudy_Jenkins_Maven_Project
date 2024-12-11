@@ -18,13 +18,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                withEnv(["PATH=$PATH:$MAVEN_HOME/bin"]) 
+                // withEnv(["PATH=$PATH:$MAVEN_HOME/bin"]) 
                 sh 'mvn clean'
             }
         }
         stage('Test') {
             steps {
-                withEnv(["PATH=$PATH:$MAVEN_HOME/bin"]) 
+                // withEnv(["PATH=$PATH:$MAVEN_HOME/bin"]) 
                 sh """
                     mvn test \
                     -Dusername=${USERNAME} \
