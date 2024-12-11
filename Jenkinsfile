@@ -18,12 +18,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // withEnv(["PATH=$PATH:$MAVEN_HOME/bin"]) 
+                // keepEnv(['foo', 'WORKSPACE']) 
+                keepEnv(["PATH=$PATH:$MAVEN_HOME/bin"]) 
                 sh 'mvn clean'
             }
         }
         stage('Test') {
             steps {
+                 keepEnv(["PATH=$PATH:$MAVEN_HOME/bin"]) 
                 // withEnv(["PATH=$PATH:$MAVEN_HOME/bin"]) 
                 sh """
                     mvn test \
